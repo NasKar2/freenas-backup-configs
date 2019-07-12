@@ -27,8 +27,8 @@ fi
 echo
 if [ ${choice} == "B" ] || [ ${choice} == "b" ]; then
     if [ ! -d "${BACKUP_PATH}" ]; then
-      mkdir -p ${{BACKUP_PATH}
-      echo "mkdir -p ${${BACKUP_PATH}"
+      mkdir -p ${BACKUP_PATH}
+      echo "mkdir -p ${BACKUP_PATH}"
     fi
   # to backup
   #tar --exclude=./*.db-* -zcvf /mnt/v1/apps/sonarrbackup.tar.gz ./
