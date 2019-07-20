@@ -15,7 +15,7 @@
 /git/freenas-iocage-other/lazylib-config
 /git/freenas-iocage-other/unifi-config
 /git/freenas-iocage-other/WordpressBackup-config
-/freenas-iocage-plex/plex-config
+/git/freenas-iocage-plex/plex-config
 /git/sepapps-freenas-iocage/lidarr-config
 /git/sepapps-freenas-iocage/radarr-config
 /git/sepapps-freenas-iocage/sabnzbd-config

@@ -3,15 +3,50 @@
 
 # add file names to a file specified in CONFIGS_LIST
 
-# Set these variable before running the script
+# Initallize variables
 #
 cron=""
-CONFIGS_PATH="/git/temp"
+CONFIGS_PATH="/git/freenas-iocage-configs_backup"
 CONFIGS_LIST="configs.txt"
 BACKUP_PATH="/mnt/v1/backup"
 BACKUP_NAME="configs.tar.gz"
+RESTORE_PATH="/git/temp"
 #
 #
+
+# Check for root privileges
+if ! [ $(id -u) = 0 ]; then
+   echo "This script must be run with root privileges"
+   exit 1
+fi
+
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+. $SCRIPTPATH/backupconfigs-config
+RELEASE=$(freebsd-version | sed "s/STABLE/RELEASE/g")
+
+# Check for backupconfigs-config and set configuration
+if ! [ -e $SCRIPTPATH/backupconfigs-config ]; then
+  echo "$SCRIPTPATH/backupconfigs-config must exist."
+  exit 1
+fi
+# Check that necessary variables were set by backupconfigs-config
+if [ -z $CONFIGS_PATH ]; then
+  echo 'Configuration error: CONFIGS_PATH must be set'
+  exit 1
+fi
+if [ -z $CONFIGS_LIST ]; then
+  echo 'Configuration error: CONFIGS_LIST must be set'
+  exit 1
+fi
+if [ -z $BACKUP_PATH ]; then
+  echo 'Configuration error: BACKUP_PATH must be set'
+  exit 1
+fi
+if [ -z $BACKUP_NAME ]; then
+  echo 'Configuration error: BACKUP_NAME must be set'
+  exit 1
+fi
 
 #tar -cvf configs.tar -T configs.txt
 
@@ -32,32 +67,32 @@ if [ ${choice} == "B" ] || [ ${choice} == "b" ]; then
     fi
   # to backup
   #tar --exclude=./*.db-* -zcvf /mnt/v1/apps/sonarrbackup.tar.gz ./
-  cd /${CONFIGS_PATH}
+  cd ${CONFIG_PATH}
   echo
-  echo "/${CONFIGS_PATH}"
-  tar -cvf ${BACKUP_NAME} -T ${CONFIGS_LIST}
+  echo "${CONFIG_PATH}"
+  tar -cvf ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_PATH}/${CONFIGS_LIST}
 # tar --exclude='./nzbdrone.db-*' --exclude='nzbdrone.pid' -zcpf ${BACKUP_PATH}/${BACKUP_NAME} ./*
 
   echo
 #  echo "tar --exclude='./nzbdrone.db-*' --exclude='nzbdrone.pid' -zcpf ${BACKUP_PATH}/${BACKUP_NAME} ./*"
-  echo "tar -cvf ${BACKUP_NAME} -T ${CONFIGS_LIST}"
-  echo "Backup complete file located at ${CONFIGS_PATH}/${BACKUP_NAME}"
+  echo "tar -cvf ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_LIST}"
+  echo "Backup complete file located at ${BACKUP_PATH}/${BACKUP_NAME}"
   echo
 elif [ $choice == "R" ] || [ $choice == "r" ]; then
-    if [ ! -d "${CONFIGS_PATH}" ]; then
-      mkdir -p ${CONFIGS_PATH}
+    if [ ! -d "${BACKUP_PATH}" ]; then
+      mkdir -p ${BACKUP_PATH}
       echo
-      echo "mkdir -p ${CONFIGS_PATH}"
+      echo "mkdir -p ${BACKUP_PATH}"
       echo
-#     chowm -R media:media ${CONFIGS_PATH}                                                                      
-#     echo "chown -R media:media ${CONFIGS_PATH}"
+#     chowm -R media:media ${BACKUP_PATH}                                                                      
+#     echo "chown -R media:media ${BACKUP_PATH}"
     fi
 echo "before tar"
-  tar zvxpf /${BACKUP_PATH}/${BACKUP_NAME} -C /${CONFIGS_PATH}
+  tar zvxpf ${BACKUP_PATH}/${BACKUP_NAME} -C ${RESTORE_PATH}
   echo
-  echo "tar zvxpf ${BACKUP_PATH}/${BACKUP_NAME} -C ${CONFIGS_PATH}"
+  echo "tar zvxpf ${BACKUP_PATH}/${BACKUP_NAME} -C ${RESTORE_PATH}"
   echo
-  echo "Restore completed at ${CONFIGS_PATH}"
+  echo "Restore completed at ${RESTORE_PATH}"
   echo
 else
   echo
