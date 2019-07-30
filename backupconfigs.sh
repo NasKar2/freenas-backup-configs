@@ -1,6 +1,12 @@
 #!/bin/sh
 #backup and restore config files
 
+# Check for root privileges
+if ! [ $(id -u) = 0 ]; then
+   echo "This script must be run with root privileges"
+   exit 1
+fi
+
 # add file names to a file specified in CONFIGS_LIST
 
 # Initallize variables
@@ -70,12 +76,13 @@ if [ ${choice} == "B" ] || [ ${choice} == "b" ]; then
   cd ${CONFIG_PATH}
   echo
   echo "${CONFIG_PATH}"
-  tar -cvf ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_PATH}/${CONFIGS_LIST}
+  tar -cf ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_PATH}/${CONFIGS_LIST}
+echo ${CONFIGS_PATH}/${CONFIGS_LIST}
 # tar --exclude='./nzbdrone.db-*' --exclude='nzbdrone.pid' -zcpf ${BACKUP_PATH}/${BACKUP_NAME} ./*
 
   echo
 #  echo "tar --exclude='./nzbdrone.db-*' --exclude='nzbdrone.pid' -zcpf ${BACKUP_PATH}/${BACKUP_NAME} ./*"
-  echo "tar -cvf ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_LIST}"
+  echo "tar -cvf ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_PATH}/${CONFIGS_LIST}"
   echo "Backup complete file located at ${BACKUP_PATH}/${BACKUP_NAME}"
   echo
 elif [ $choice == "R" ] || [ $choice == "r" ]; then
