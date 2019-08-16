@@ -76,14 +76,14 @@ if [ ${choice} == "B" ] || [ ${choice} == "b" ]; then
   cd ${CONFIG_PATH}
   echo
   echo "${CONFIG_PATH}"
-  tar -cf ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_PATH}/${CONFIGS_LIST}
+  tar cfP ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_PATH}/${CONFIGS_LIST}
 echo ${CONFIGS_PATH}/${CONFIGS_LIST}
 chmod 660 ${BACKUP_PATH}/${BACKUP_NAME}
 # tar --exclude='./nzbdrone.db-*' --exclude='nzbdrone.pid' -zcpf ${BACKUP_PATH}/${BACKUP_NAME} ./*
 
   echo
 #  echo "tar --exclude='./nzbdrone.db-*' --exclude='nzbdrone.pid' -zcpf ${BACKUP_PATH}/${BACKUP_NAME} ./*"
-  echo "tar -cvf ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_PATH}/${CONFIGS_LIST}"
+  echo "tar cvfP ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_PATH}/${CONFIGS_LIST}"
   echo "Backup complete file located at ${BACKUP_PATH}/${BACKUP_NAME}"
   echo
 elif [ $choice == "R" ] || [ $choice == "r" ]; then
