@@ -9,6 +9,8 @@
 /git/freenas-iocage-other/emby-config
 /git/freenas-iocage-other/jackett-config
 /git/freenas-iocage-other/transmission-config
+/git/freenas-iocage-other/configs/openvpn.conf
+/git/freenas-iocage-other/configs/pass.txt
 /git/freenas-iocage-other/urbackup-config
 /git/freenas-iocage-other/wp-config
 /git/freenas-iocage-other/handbrake-config
