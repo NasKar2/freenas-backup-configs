@@ -78,6 +78,7 @@ if [ ${choice} == "B" ] || [ ${choice} == "b" ]; then
   echo "${CONFIG_PATH}"
   tar -cf ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_PATH}/${CONFIGS_LIST}
 echo ${CONFIGS_PATH}/${CONFIGS_LIST}
+chmod 660 ${BACKUP_PATH}/${BACKUP_NAME}
 # tar --exclude='./nzbdrone.db-*' --exclude='nzbdrone.pid' -zcpf ${BACKUP_PATH}/${BACKUP_NAME} ./*
 
   echo
