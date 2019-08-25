@@ -5,6 +5,7 @@
 /git/backupapps-freenas-iocage/RadarrBackup-config
 /git/backupapps-freenas-iocage/SonarrBackup-config
 /git/backupapps-freenas-iocage/WordpressBackup-config
+/git/backupapps-freenas-iocage/LazylibrarianBackup-config
 /git/freenas-backup-plex/PlexBackup-config
 /git/freenas-iocage-other/emby-config
 /git/freenas-iocage-other/jackett-config
