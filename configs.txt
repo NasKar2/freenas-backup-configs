@@ -1,11 +1,11 @@
 /mnt/v1/git/freenas-iocage-nextcloud/nextcloud-config
-/mnt/v1/git/freenas-iocage-backupapps/LidarrBackup-config
-/mnt/v1/git/freenas-iocage-backupapps/SabnzbdBackup-config
-/mnt/v1/git/freenas-iocage-backupapps/TautulliBackup-config
-/mnt/v1/git/freenas-iocage-backupapps/RadarrBackup-config
-/mnt/v1/git/freenas-iocage-backupapps/SonarrBackup-config
-/mnt/v1/git/freenas-iocage-backupapps/WordpressBackup-config
-/mnt/v1/git/freenas-iocage-backupapps/LazylibrarianBackup-config
+/mnt/v1/git/freenas-backup-apps/LidarrBackup-config
+/mnt/v1/git/freenas-backup-apps/SabnzbdBackup-config
+/mnt/v1/git/freenas-backup-apps/TautulliBackup-config
+/mnt/v1/git/freenas-backup-apps/RadarrBackup-config
+/mnt/v1/git/freenas-backup-apps/SonarrBackup-config
+/mnt/v1/git/freenas-backup-apps/WordpressBackup-config
+/mnt/v1/git/freenas-backup-apps/LazylibrarianBackup-config
 /mnt/v1/git/freenas-backup-plex/PlexBackup-config
 /mnt/v1/git/freenas-iocage-other/duplicati-config
 /mnt/v1/git/freenas-iocage-other/emby-config
@@ -26,3 +26,7 @@
 /mnt/v1/git/danb35/freenas-iocage-caddy/caddy-config
 /mnt/v1/git/danb35/freenas-iocage-nextcloud/nextcloud-config
 /mnt/v1/git/danb35/freenas-iocage-plex/plex-config
+/mnt/v1/git/freenas-backup-appsdir/appsdir-config
+/mnt/v1/git/freenas-backup-configs/backupconfigs-config
+/mnt/v1/git/freenas-backup-plex/PlexBackup-config
+

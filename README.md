@@ -1,4 +1,4 @@
-# freenas-iocage-configs_backup
+# freenas-backup-configs
 Backup config files for scripts
 ## Set these variable before running the script
 Create a file with your text editor call backupconfigs-config with the variables listed below
