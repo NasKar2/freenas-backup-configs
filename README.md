@@ -19,7 +19,7 @@ RESTORE_PATH is location where you want to restore the configs. If "/" it will r
 
 ## You can create the configs.txt file automatically with this command
 ```
-find /mnt/v1/git -name '*-config' > config.txt
+find /mnt/v1/git -name '*-config' > configs.txt
 ```
 
 where /mnt/v1/git is the root of your git directories
