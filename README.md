@@ -16,3 +16,10 @@ CONFIG_LIST is the list of all the config files
 BACKUP_PATH is the location where the configs.tar.gz (config files) will be located
 BACKUP_NAME is the name of the backup file
 RESTORE_PATH is location where you want to restore the configs. If "/" it will restore to the original locations
+
+## You can create the configs.txt file automatically with this command
+```
+find /mnt/v1/git -name '*-config' > config.txt
+```
+
+where /mnt/v1/git is the root of your git directories
