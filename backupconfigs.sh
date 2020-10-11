@@ -11,7 +11,6 @@ fi
 
 # Initallize variables
 #
-cron=""
 CONFIGS_PATH="/git/freenas-iocage-configs_backup"
 CONFIGS_LIST="configs.txt"
 BACKUP_PATH="/mnt/v1/backup"
@@ -57,9 +56,16 @@ fi
 
 #tar -cvf configs.tar -T configs.txt
 
-if [ "$cron" != "yes" ]; then
- read -p "Enter '(B)ackup' to backup Config files or '(R)estore' to restore Config files: " choice
+#
+# Ask to Backup or restore, if run interactively
+#
+if ! [ -t 1 ] ; then
+  # Not run interactively
+  choice="B"
+else
+ read -p "Enter '(B)ackup' to backup Nextcloud or '(R)estore' to restore Nextcloud: " choice
 fi
+
 echo
 
 if [ "${cron}" == "yes" ]; then

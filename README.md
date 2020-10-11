@@ -2,15 +2,14 @@
 Backup config files for scripts
 ## Set these variable before running the script
 Create a file with your text editor call backupconfigs-config with the variables listed below
+To automate backup, create a cron job pointing to the backup script. The prompts wll be bypassed in any non-interactive operation like a cron task in the FreeNAS GUI.
 ```
-cron=""
 CONFIGS_PATH="/git/freenas-iocage-configs_backup"
 CONFIGS_LIST="configs.txt"
 BACKUP_PATH="/mnt/v1/backup"
 BACKUP_NAME="configs.tar.gz"
 RESTORE_PATH="/"
 ```
-cron set to "yes" if you want to only do backup when script executed
 CONFIGS_PATH is the location where the configs.tar.gz file will be located after a backup
 CONFIG_LIST is the list of all the config files
 BACKUP_PATH is the location where the configs.tar.gz (config files) will be located
