@@ -28,8 +28,7 @@ fi
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 . $SCRIPTPATH/backupconfigs-config
-RELEASE="11.3-RELEASE"
-#RELEASE=$(freebsd-version | sed "s/STABLE/RELEASE/g")
+RELEASE=$(freebsd-version | cut -d - -f -1)"-RELEASE"
 
 # Check for backupconfigs-config and set configuration
 if ! [ -e $SCRIPTPATH/backupconfigs-config ]; then
