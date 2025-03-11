@@ -66,13 +66,14 @@ else
 fi
 
 echo
-
-if [ "${cron}" == "yes" ]; then
-    choice="B"
-fi
+echo $choice
+#if [ "${cron}" == "yes" ]; then
+#    choice="B"
+#fi
 
 echo
-if [ ${choice} == "B" ] || [ ${choice} == "b" ]; then
+if [ "${choice}" = "B" ] || [ "${choice}" = "b" ]; then
+echo $choice
     if [ ! -d "${BACKUP_PATH}" ]; then
       mkdir -p ${BACKUP_PATH}
       echo "mkdir -p ${BACKUP_PATH}"
@@ -92,7 +93,7 @@ echo ${CONFIGS_PATH}/${CONFIGS_LIST}
   echo "tar cvfP ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_PATH}/${CONFIGS_LIST}"
   echo "Backup complete file located at ${BACKUP_PATH}/${BACKUP_NAME}"
   echo
-elif [ $choice == "R" ] || [ $choice == "r" ]; then
+elif [ "$choice" = "R" ] || [ "$choice" = "r" ]; then
     if [ ! -d "${BACKUP_PATH}" ]; then
       mkdir -p ${BACKUP_PATH}
       echo
