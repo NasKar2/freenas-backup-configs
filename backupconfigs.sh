@@ -67,9 +67,6 @@ fi
 
 echo
 echo $choice
-#if [ "${cron}" == "yes" ]; then
-#    choice="B"
-#fi
 
 echo
 if [ "${choice}" = "B" ] || [ "${choice}" = "b" ]; then
