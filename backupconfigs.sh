@@ -28,7 +28,7 @@ fi
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 . $SCRIPTPATH/backupconfigs-config
-RELEASE=$(freebsd-version | cut -d - -f -1)"-RELEASE"
+#RELEASE=$(freebsd-version | cut -d - -f -1)"-RELEASE"
 
 # Check for backupconfigs-config and set configuration
 if ! [ -e $SCRIPTPATH/backupconfigs-config ]; then
@@ -84,7 +84,7 @@ if [ ${choice} == "B" ] || [ ${choice} == "b" ]; then
   echo "${CONFIG_PATH}"
   tar cfP ${BACKUP_PATH}/${BACKUP_NAME} -T ${CONFIGS_PATH}/${CONFIGS_LIST}
 echo ${CONFIGS_PATH}/${CONFIGS_LIST}
-chmod 660 ${BACKUP_PATH}/${BACKUP_NAME}
+#chmod 660 ${BACKUP_PATH}/${BACKUP_NAME}
 # tar --exclude='./nzbdrone.db-*' --exclude='nzbdrone.pid' -zcpf ${BACKUP_PATH}/${BACKUP_NAME} ./*
 
   echo
